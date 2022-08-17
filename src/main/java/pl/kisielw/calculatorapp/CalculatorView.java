@@ -12,12 +12,12 @@ public class CalculatorView {
 
     private static CalculatorView view = null;
     private final CalculatorService calculatorService;
-    private static int SCENE_WIDTH = 200;
-    private static int SCENE_HEIGHT = 400;
-    private static int BUTTONS_MIN_WIDTH = 50;
-    private static int BUTTONS_MIN_HEIGHT = 60;
-    private static int RESULT_FIELD_MIN_WIDTH = 200;
-    private static int RESULT_FIELD_MIN_HEIGHT = 50;
+    private final static  int SCENE_WIDTH = 200;
+    private final static int SCENE_HEIGHT = 400;
+    private final static int BUTTONS_MIN_WIDTH = 50;
+    private final static int BUTTONS_MIN_HEIGHT = 60;
+    private final static int RESULT_FIELD_MIN_WIDTH = 200;
+    private final static int RESULT_FIELD_MIN_HEIGHT = 50;
 
     private Button b1;
     private Button b2;

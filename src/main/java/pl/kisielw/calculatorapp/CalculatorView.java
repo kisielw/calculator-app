@@ -12,6 +12,12 @@ public class CalculatorView {
 
     private static CalculatorView view = null;
     private final CalculatorService calculatorService;
+    private static int SCENE_WIDTH = 200;
+    private static int SCENE_HEIGHT = 400;
+    private static int BUTTONS_MIN_WIDTH = 50;
+    private static int BUTTONS_MIN_HEIGHT = 60;
+    private static int RESULT_FIELD_MIN_WIDTH = 200;
+    private static int RESULT_FIELD_MIN_HEIGHT = 50;
 
     private Button b1;
     private Button b2;
@@ -75,7 +81,7 @@ public class CalculatorView {
 
     private void setSizeForButtons(Button... buttons) {
         for (Button button : buttons) {
-            button.setMinSize(50, 60);
+            button.setMinSize(BUTTONS_MIN_WIDTH, BUTTONS_MIN_HEIGHT);
         }
     }
 
@@ -110,38 +116,9 @@ public class CalculatorView {
                         } else {
                             resultField.setText(String.format("%s%s", resultFieldText, buttonText));
                         }
-
-
-//                if (!resultFieldText.matches("^-?[0-9]+\\.[0-9]+$")) {
-//                    comma.setDisable(false);
-//                }
-//                if (buttonText.equals(".")) {
-//                    comma.setDisable(true);
-//                }
-//                if (calculatorService.getOperation() != null && (ifResultFieldEqualsNumber1() ||
-//                        ifResultFieldEqualsResult())) {
-//                    resultField.setText("");
-//                }
-//                if (buttonText.equals("0")) {
-//                    if (resultFieldText.equals("0")) {
-//                        resultField.setText("0");
-//                    } else {
-//                        resultField.setText(String.format("%s%s", resultFieldText, buttonText));
-//                    }
-//                } else {
-//                    if (resultFieldText.equals("0")) {
-//                        if (buttonText.equals(".")) {
-//                            resultField.setText(String.format("%s%s", resultFieldText, buttonText));
-//                        } else {
-//                            resultField.setText(buttonText);
-//                        }
-//                } else{
-//                    resultField.setText(String.format("%s%s", resultFieldText, buttonText));
-//                }
                 }
             });
         }
-
     }
 
     private boolean isOperationNotNull() {
@@ -181,7 +158,6 @@ public class CalculatorView {
     }
 
     private void setOnActionsForOtherButtons() {
-
         result.setOnAction(actionEvent -> {
             if (calculatorService.getResult() != null) {
                 setTextToResultFieldWithCalculatedResult();
@@ -263,12 +239,12 @@ public class CalculatorView {
     private void setResultField() {
         resultField = new TextField();
         resultField.setDisable(true);
-        resultField.setMinSize(200, 50);
+        resultField.setMinSize(RESULT_FIELD_MIN_WIDTH, RESULT_FIELD_MIN_HEIGHT);
     }
 
     private void setScene() {
         setVBox();
-        scene = new Scene(vBox, 200, 400);
+        scene = new Scene(vBox, SCENE_WIDTH, SCENE_HEIGHT);
     }
 
     public Scene getScene() {
